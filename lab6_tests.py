@@ -65,8 +65,8 @@ class TestCases(unittest.TestCase):
 
     # Part 1
     def test_selection_sort_books(self):
-        books = [data.Book("The Hobbit"), data.Book("Pride and Prejudice"), data.Book("To Kill a Mockingbird")]
-        expected = [data.Book('Pride and Prejudice'), data.Book('The Hobbit'), data.Book('To Kill a Mockingbird')]
+        books = [data.Book("Tolkien","The Hobbit"), data.Book("Jane Austen","Pride and Prejudice"), data.Book("Harper Lee","To Kill a Mockingbird")]
+        expected = [data.Book("Jane Austen","Pride and Prejudice"),data.Book("Tolkien","The Hobbit"), data.Book("Harper Lee","To Kill a Mockingbird")]
         test = lab6.selection_sort_books(books)
         self.assertEqual(expected,test)
 
@@ -87,15 +87,13 @@ class TestCases(unittest.TestCase):
 
     # Part 3
     def test_str_translate_1(self):
-        input = ("abcdcba","a","x")
         expected = "xbcdcbx"
-        test = lab6.str_translate(input)
+        test = lab6.str_translate("abcdcba","a","x")
         self.assertEqual(test,expected)
 
     def test_str_translate_2(self):
-        input = ("hello", "l", "p")
         expected = "heppo"
-        test = lab6.str_translate(input)
+        test = lab6.str_translate("hello", "l", "p")
         self.assertEqual(test, expected)
 
     # Part 4

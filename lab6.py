@@ -37,13 +37,25 @@ def selection_sort(values:list[int]) -> None:
 
 
 # Part 1
+def index_smallest_from_books(books: list[data.Book],start: int):
+    if start >= len(books) or start <0:
+        return None
+
+    mindex = start
+    for idx in range(start + 1, len(books)):
+        if books[idx].title < books[mindex].title:
+            mindex = idx
+
+    return mindex
+
 def selection_sort_books(books: list[data.Book]):
-    for i in range(len(books)):
-        min_index = i
-        for j in range(i+1,len(books)):
-            if books[j].title<books[min_index].title:
-                min_index = j
-        books[i],books[min_index] = books[min_index],books[i]
+    for i in range(len(books)-1):
+        mindex = index_smallest_from_books(books,i)
+        books[mindex],books[i] = books[i],books[mindex]
+    return books
+
+
+
 
 
 # Part 2
